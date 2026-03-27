@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>68115408 ธนภัท วัฒนผลมงคล</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* ===== NAVBAR CUSTOM ===== */
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* ===== BANNER ===== */
+    .banner {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== VIDEO SECTION ===== */
+    .video-wrapper {
+      position: relative;
+      background: #000;
+    }
+
+    #myVideo {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== FORM ===== */
+    .form-section {
+      background: #007bff;
+      color: white;
+      padding: 10px 16px;
+      font-weight: 600;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .form-card {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      overflow: hidden;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-body {
+      padding: 20px;
+      background: #fff;
+    }
+
+    .form-body label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* ===== STUDENT BADGE ===== */
+    .student-info {
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- ===== SECTION 1: NAVBAR (Bootstrap) ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6d4c41;">
+    <div class="container-fluid px-4">
+
+      <!-- Brand / ชื่อ -->
+      <a class="navbar-brand text-white" href="#">68115408 ธนภัท</a>
+
+      <!-- Hamburger for mobile -->
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu items -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">หน้าแรก</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">ข้อมูลบริษัท</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">บริการ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">เกี่ยวกับเรา</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ===== SECTION 2: BANNER (Image แทน Video) ===== -->
+  <div class="video-wrapper">
+    <!-- Banner image -->
+    <img
+      class="banner"
+      src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=1400&q=80"
+      alt="Banner">
+
+    <!-- VIDEO ที่ซ่อนไว้ (สำหรับ play/pause) -->
+    <video id="myVideo" style="display:none;" loop muted>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- ===== SECTION 3: ปุ่ม Play / Pause (Bootstrap + JavaScript) ===== -->
+  <div class="text-center my-3">
+    <div class="card-footer bg-white text-center mt-2 d-inline-block border rounded p-2">
+      <button class="btn btn-warning btn-sm me-2"
+        onclick="playBanner()">
+        ▶ Play
+      </button>
+      <button class="btn btn-danger btn-sm"
+        onclick="pauseBanner()">
+        ⏸ Pause
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: แบบฟอร์มลงทะเบียน ===== -->
+  <div class="container mb-5">
+    <div class="form-card shadow-sm">
+
+      <!-- หัวฟอร์ม -->
+      <div class="form-section">
+        แบบฟอร์มลงทะเบียน
+      </div>
+
+      <!-- เนื้อหาฟอร์ม -->
+      <div class="form-body">
+
+        <!-- ชื่อ-นามสกุล -->
+        <div class="mb-3">
+          <label for="fullname" class="form-label">ชื่อ-นามสกุล:</label>
+          <input type="text" class="form-control form-control-sm"
+            id="fullname" placeholder="กรุณากรอกชื่อ-นามสกุล">
+        </div>
+
+        <!-- อีเมล -->
+        <div class="mb-3">
+          <label for="email" class="form-label">อีเมล:</label>
+          <input type="email" class="form-control form-control-sm"
+            id="email" placeholder="example@domain.com">
+        </div>
+
+        <!-- รหัสผ่าน -->
+        <div class="mb-3">
+          <label for="password" class="form-label">รหัสผ่าน:</label>
+          <input type="password" class="form-control form-control-sm"
+            id="password">
+        </div>
+
+        <!-- เพศ -->
+        <div class="mb-3">
+          <label class="form-label d-block">เพศ:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+              name="gender" id="male" value="ชาย">
+            <label class="form-check-label" for="male">ชาย</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+              name="gender" id="female" value="หญิง">
+            <label class="form-check-label" for="female">หญิง</label>
+          </div>
+        </div>
+
+        <!-- ตำแหน่ง -->
+        <div class="mb-4">
+          <label for="position" class="form-label">ตำแหน่ง</label>
+          <select class="form-select form-select-sm" id="position">
+            <option value="">Please select a position</option>
+            <option value="developer">นักพัฒนาซอฟต์แวร์</option>
+            <option value="designer">นักออกแบบ UX/UI</option>
+            <option value="manager">ผู้จัดการโครงการ</option>
+            <option value="analyst">นักวิเคราะห์ระบบ</option>
+          </select>
+        </div>
+
+        <!-- ปุ่ม -->
+        <div class="d-flex gap-2">
+          <button class="btn btn-success btn-sm">ลงทะเบียน</button>
+          <button class="btn btn-secondary btn-sm"
+            onclick="clearForm()">สล้างข้อมูล</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Student info -->
+    <p class="text-center student-info mt-3">
+      68115408 ธนภัท วัฒนผลมงคล · ICT12267
+    </p>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ===== JAVASCRIPT: Play / Pause ===== -->
+  <script>
+    const banner = document.querySelector('.banner');
+    const video  = document.getElementById('myVideo');
+
+    function playBanner() {
+      // สลับจาก Banner รูปภาพ → Video แล้วเล่น
+      banner.style.display = 'none';
+      video.style.display  = 'block';
+      video.play();
+    }
+
+    function pauseBanner() {
+      // หยุดวิดีโอ แล้วสลับกลับไปแสดงภาพ banner
+      video.pause();
+      video.style.display  = 'none';
+      banner.style.display = 'block';
+    }
+
+    function clearForm() {
+      document.getElementById('fullname').value  = '';
+      document.getElementById('email').value     = '';
+      document.getElementById('password').value  = '';
+      document.getElementById('position').value  = '';
+      document.querySelectorAll('input[name="gender"]')
+        .forEach(r => r.checked = false);
+    }
+  </script>
+
+</body>
+</html>
